@@ -1,0 +1,2 @@
+[console_scripts]
+datops-manager-cli = datops_manager.cli:main

@@ -1,0 +1,189 @@
+Metadata-Version: 2.2
+Name: datops_manager
+Version: 0.1
+Summary: Un gestionnaire d'opérations pour les pipelines de données
+Home-page: https://github.com/sanourith/datops_manager
+Author: Sanou
+Author-email: ton.email@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: setuptools
+Requires-Dist: docker
+Requires-Dist: kubernetes
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# DATOPS CLI PROJECT
+
+```txt
+datops-manager/
+├── datops_manager/
+│   ├── __init__.py
+│   ├── cli.py                      # Point d'entrée CLI principal (Click)
+│   ├── infrastructure/             # Gestion de l'infrastructure
+│   │   ├── __init__.py
+│   │   ├── k8s_manager.py          # Gestion Kubernetes
+│   │   ├── terraform_deployer.py   # Déploiement avec Terraform
+│   │   └── docker_manager.py       # Gestion des conteneurs Docker
+│   ├── etl/                        # Module ETL
+│   │   ├── __init__.py
+│   │   ├── pipeline.py             # Classe ETLPipeline principale
+│   │   ├── extract.py              # Connecteurs pour l'extraction de données
+│   │   ├── transform.py            # Fonctions de transformation
+│   │   ├── load.py                 # Connecteurs pour le chargement des données
+│   │   └── validator.py            # Validation des données
+│   ├── data_migration/             # Synchronisation et migration de données
+│   │   ├── __init__.py
+│   │   ├── db_sync.py              # Synchronisation entre bases de données
+│   │   └── migration_manager.py    # Gestion des migrations
+│   ├── monitoring/                 # Monitoring et alertes
+│   │   ├── __init__.py
+│   │   ├── logger.py               # Système de logs centralisé
+│   │   ├── metrics.py              # Collecte et reporting de métriques
+│   │   └── alert_manager.py        # Système d'alertes (Slack, Email, etc.)
+│   ├── orchestration/              # Orchestration des pipelines
+│   │   ├── __init__.py
+│   │   ├── airflow_manager.py      # Gestion des DAGs Airflow
+│   │   └── spark_runner.py         # Exécution des jobs Spark
+│   └── utils/                      # Fonctions utilitaires
+│       ├── __init__.py
+│       ├── config_manager.py       # Gestion des configurations
+│       ├── secret_manager.py       # Gestion sécurisée des secrets
+│       └── helpers.py              # Fonctions d'aide diverses
+├── tests/                          # Tests unitaires et d'intégration
+│   ├── __init__.py
+│   ├── test_etl/
+│   ├── test_infrastructure/
+│   ├── test_data_migration/
+│   └── test_monitoring/
+├── examples/                       # Exemples d'utilisation
+│   ├── etl_pipeline_example.py
+│   ├── k8s_deployment_example.py
+│   └── data_migration_example.py
+├── docs/                           # Documentation
+│   ├── index.md
+│   ├── etl.md
+│   ├── infrastructure.md
+│   └── monitoring.md
+├── scripts/                        # Scripts utilitaires
+│   ├── install_dependencies.sh
+│   └── setup_dev_environment.sh
+├── setup.py                        # Installation du package
+├── pyproject.toml                  # Configuration du projet
+├── requirements.txt                # Dépendances
+├── requirements-dev.txt            # Dépendances pour le développement
+├── LICENSE
+└── README.md                       # Documentation principale
+```
+
+
+# Plan de mise en place
+
+## Phase 1: Mise en place de la structure du projet
+
+Créer le squelette du projet selon l'arborescence proposée
+Configurer l'environnement de développement (virtualenv, git)
+Initialiser le système de versionnage et le dépôt Git
+Mettre en place les outils de développement (linters, formatters)
+
+
+## Phase 2: Développement du système de base
+
+Implémenter le point d'entrée CLI avec Click
+Développer le système de logs centralisé
+Mettre en place le gestionnaire de configuration
+Créer la structure de base pour les tests unitaires
+
+
+## Phase 3: Développement des modules essentiels
+
+Implémenter les fonctionnalités de base pour l'ETL:
+
+Connexions aux sources de données courantes
+Transformations simples
+Chargement vers destinations principales
+
+
+Développer les fonctionnalités Kubernetes de base:
+
+Création/suppression de namespaces
+Déploiement de pods/services
+
+
+Mettre en place le système de monitoring simple
+
+
+## Phase 4: Enrichissement du package
+
+Ajouter plus de connecteurs pour sources/destinations de données
+Développer des transformations avancées
+Implémenter la gestion Terraform
+Ajouter le support pour Airflow
+
+
+## Phase 5: Tests et documentation
+
+Compléter les tests unitaires et d'intégration
+Rédiger la documentation détaillée
+Créer des exemples d'utilisation
+Préparer le package pour la distribution
+
+
+## Phase 6: CI/CD et déploiement
+
+Mettre en place un pipeline CI/CD
+Publier le package sur PyPI (optionnel)
+Créer des images Docker pour faciliter l'utilisation
+
+
+
+# Améliorations possibles
+
+Interface graphique web: Développer une interface web légère qui permet de visualiser l'état des pipelines ETL, les métriques de performance et les logs, offrant ainsi une alternative à l'interface CLI.
+Plugin System: Créer un système de plugins qui permet d'étendre les fonctionnalités du package sans modifier le code de base, facilitant l'intégration de nouveaux connecteurs ou transformations.
+Auto-scaling pour ETL: Implémenter une fonctionnalité d'auto-scaling qui ajuste automatiquement les ressources allouées aux tâches ETL en fonction de la charge de travail et de la complexité des données.
+Gestion du versionnement des données: Ajouter un système de versionnement pour les jeux de données et les schémas, permettant de suivre les modifications et de revenir à des versions antérieures si nécessaire.
+Détection d'anomalies: Intégrer des algorithmes de machine learning pour détecter automatiquement les anomalies dans les données traitées et dans les performances des pipelines, avec génération d'alertes pertinentes.
+
+
+## Mise en place de l'environnement de base
+
+Créez le squelette du projet selon l'arborescence
+Configurez votre environnement de développement avec les dépendances de base
+Initialisez git et créez votre premier commit
+
+
+## Développement du CLI
+
+Utilisez Click pour créer l'interface de ligne de commande
+Implémentez les commandes principales sans leurs fonctionnalités (structure)
+Créez un système de logs robuste qui servira pour toutes les fonctionnalités
+
+
+## Premier module fonctionnel
+
+Je vous conseille de commencer par la partie Kubernetes qui est souvent la plus utile au quotidien
+Implémentez les fonctions de base comme create-namespace, deploy et get-pods
+Testez soigneusement avec votre configuration locale
+
+
+## Module ETL de base
+
+Créez la structure ETLPipeline
+Implémentez des extracteurs pour vos sources de données les plus utilisées
+Ajoutez des transformations simples mais utiles (nettoyage, filtrage)

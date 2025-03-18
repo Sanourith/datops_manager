@@ -1,0 +1,22 @@
+version: 1
+formatters:
+  detailed:
+    format: "[%(asctime)s] [%(levelname)s] [%(name)s] [%(funcName)s] - %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: detailed
+    level: DEBUG
+
+  file:
+    class: logging.FileHandler
+    filename: logs/dataops_manager.log
+    formatter: detailed
+    level: INFO
+
+loggers:
+  datops_manager:
+    level: DEBUG
+    handlers: [console, file]
+    propagate: no

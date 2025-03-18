@@ -1,0 +1,2 @@
+datops_manager
+tests

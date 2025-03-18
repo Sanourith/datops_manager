@@ -1,0 +1,14 @@
+# Ignorer les fichiers sensibles
+.env
+*.env
+*.log
+*.pyc
+__pycache__/
+*.swp
+# Data & volumineux
+*.csv
+
+
+# Fichier venv et build
+v_datops/*
+build/*
