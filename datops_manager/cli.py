@@ -38,6 +38,11 @@ def run(image, name):
         logger.error(f"Error launching container : {e}")
 
 
+# docker stop / docker rm & ajout stop/rm à run
+# docker build & ajout push à build
+# docker images & ajout rm à images
+
+
 ### KUBERNETES COMMANDS
 @cli.group()
 def k8s():
@@ -67,3 +72,11 @@ def delete(name):
         logger.info(f"Deployment : {name} deleted")
     except Exception as e:
         logger.error(f"Error during deletion of {name}: {e}")
+
+
+# combiner deploy/delete ?
+# get all -n
+#
+
+
+## GITLAB
