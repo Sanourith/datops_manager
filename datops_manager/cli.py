@@ -18,7 +18,7 @@ def cli():
     pass
 
 
-### DOCKER COMMANDS
+# DOCKER COMMANDS
 @cli.group()
 def docker():
     """Docker commands for CLI"""
@@ -43,7 +43,7 @@ def run(image, name):
 # docker images & ajout rm à images
 
 
-### KUBERNETES COMMANDS
+# KUBERNETES COMMANDS
 @cli.group()
 def k8s():
     """Deployments tool"""
@@ -79,4 +79,4 @@ def delete(name):
 #
 
 
-## GITLAB
+# GITLAB
