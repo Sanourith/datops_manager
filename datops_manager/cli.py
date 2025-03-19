@@ -42,6 +42,9 @@ def run(image, name):
         logger.error(f"Error launching container : {e}")
 
 
+# eg : dom dock run
+
+
 # docker stop / docker rm & ajout stop/rm à run
 # docker build & ajout push à build
 # docker images & ajout rm à images

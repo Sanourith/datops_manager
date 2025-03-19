@@ -96,94 +96,65 @@ datops-manager/
 
 ## Phase 1: Mise en place de la structure du projet
 
-Créer le squelette du projet selon l'arborescence proposée
-Configurer l'environnement de développement (virtualenv, git)
-Initialiser le système de versionnage et le dépôt Git
-Mettre en place les outils de développement (linters, formatters)
-
+✅ Création du squelette du projet avec l'arborescence des dossiers pour une clarté maximale.\
+✅ Initialisation du repo Github et de l'environnement virtuel utilisé par la suite v_datops\
+✅ Système de versionnage Git\
+✅ Outils de développement & linters
 
 ## Phase 2: Développement du système de base
 
-Implémenter le point d'entrée CLI avec Click
-Développer le système de logs centralisé
-Mettre en place le gestionnaire de configuration
-Créer la structure de base pour les tests unitaires
+🚧 Implémentation du point d'entrée CLI avec Click\
+🚧 Développement du système de logs centralisé\
+🚧 Mise en place du gestionnaire de configuration\
+🚧 Créer la structure de base pour les tests unitaires
 
 
 ## Phase 3: Développement des modules essentiels
 
-Implémenter les fonctionnalités de base pour l'ETL:
+⬜ Implémenter les fonctionnalités de base pour l'ETL:
 
-Connexions aux sources de données courantes
-Transformations simples
-Chargement vers destinations principales
-
-
-Développer les fonctionnalités Kubernetes de base:
-
-Création/suppression de namespaces
-Déploiement de pods/services
+⬜ Connexions aux sources de données courantes\
+⬜ Transformations simples\
+⬜ Chargement vers destinations principales
 
 
-Mettre en place le système de monitoring simple
+⬜ Développer les fonctionnalités Kubernetes de base:
+
+⬜ Création/suppression de namespaces\
+⬜ Déploiement de pods/services
+
+
+⬜ Mettre en place le système de monitoring simple
 
 
 ## Phase 4: Enrichissement du package
 
-Ajouter plus de connecteurs pour sources/destinations de données
-Développer des transformations avancées
-Implémenter la gestion Terraform
-Ajouter le support pour Airflow
+⬜ Ajouter plus de connecteurs pour sources/destinations de données\
+⬜ Développer des transformations avancées\
+⬜ Implémenter la gestion Terraform\
+⬜ Ajouter le support pour Airflow
 
 
 ## Phase 5: Tests et documentation
 
-Compléter les tests unitaires et d'intégration
-Rédiger la documentation détaillée
-Créer des exemples d'utilisation
-Préparer le package pour la distribution
+⬜ Compléter les tests unitaires et d'intégration\
+⬜ Rédiger la documentation détaillée\
+⬜ Créer des exemples d'utilisation\
+⬜ Préparer le package pour la distribution
 
 
 ## Phase 6: CI/CD et déploiement
 
-Mettre en place un pipeline CI/CD
-Publier le package sur PyPI (optionnel)
-Créer des images Docker pour faciliter l'utilisation
+⬜ Mettre en place un pipeline CI/CD\
+⬜ Publier le package sur PyPI (optionnel)\
+⬜ Créer des images Docker pour faciliter l'utilisation
 
 
 
 # Améliorations possibles
 
-Interface graphique web: Développer une interface web légère qui permet de visualiser l'état des pipelines ETL, les métriques de performance et les logs, offrant ainsi une alternative à l'interface CLI.
-Plugin System: Créer un système de plugins qui permet d'étendre les fonctionnalités du package sans modifier le code de base, facilitant l'intégration de nouveaux connecteurs ou transformations.
-Auto-scaling pour ETL: Implémenter une fonctionnalité d'auto-scaling qui ajuste automatiquement les ressources allouées aux tâches ETL en fonction de la charge de travail et de la complexité des données.
-Gestion du versionnement des données: Ajouter un système de versionnement pour les jeux de données et les schémas, permettant de suivre les modifications et de revenir à des versions antérieures si nécessaire.
-Détection d'anomalies: Intégrer des algorithmes de machine learning pour détecter automatiquement les anomalies dans les données traitées et dans les performances des pipelines, avec génération d'alertes pertinentes.
-
-
-## Mise en place de l'environnement de base
-
-Créez le squelette du projet selon l'arborescence
-Configurez votre environnement de développement avec les dépendances de base
-Initialisez git et créez votre premier commit
-
-
-## Développement du CLI
-
-Utilisez Click pour créer l'interface de ligne de commande
-Implémentez les commandes principales sans leurs fonctionnalités (structure)
-Créez un système de logs robuste qui servira pour toutes les fonctionnalités
-
-
-## Premier module fonctionnel
-
-Je vous conseille de commencer par la partie Kubernetes qui est souvent la plus utile au quotidien
-Implémentez les fonctions de base comme create-namespace, deploy et get-pods
-Testez soigneusement avec votre configuration locale
-
-
-## Module ETL de base
-
-Créez la structure ETLPipeline
-Implémentez des extracteurs pour vos sources de données les plus utilisées
-Ajoutez des transformations simples mais utiles (nettoyage, filtrage)
+⬜ Interface graphique web: Développer une interface web légère qui permet de visualiser l'état des pipelines ETL, les métriques de performance et les logs, offrant ainsi une alternative à l'interface CLI.\
+⬜ Plugin System: Créer un système de plugins qui permet d'étendre les fonctionnalités du package sans modifier le code de base, facilitant l'intégration de nouveaux connecteurs ou transformations.\
+⬜ Auto-scaling pour ETL: Implémenter une fonctionnalité d'auto-scaling qui ajuste automatiquement les ressources allouées aux tâches ETL en fonction de la charge de travail et de la complexité des données.\
+⬜ Gestion du versionnement des données: Ajouter un système de versionnement pour les jeux de données et les schémas, permettant de suivre les modifications et de revenir à des versions antérieures si nécessaire.\
+⬜ Détection d'anomalies: Intégrer des algorithmes de machine learning pour détecter automatiquement les anomalies dans les données traitées et dans les performances des pipelines, avec génération d'alertes pertinentes.
