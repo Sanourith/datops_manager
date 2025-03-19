@@ -6,12 +6,31 @@ from functools import wraps
 
 # Load logs configuration
 LOG_CONFIG_PATH = os.path.join(os.path.dirname(__file__), "log_config.yaml")
+log_dir = os.path.join(os.path.dirname(__file__), "../logs")
+log_file = os.path.join(log_dir, "dataops_manager.log")
 
-if os.path.exists(LOG_CONFIG_PATH):
-    with open(LOG_CONFIG_PATH, "r") as f:
-        config = yaml.safe_load(f)
-    logging.config.dictConfig(config)
+# Créer le dossier logs s'il n'existe pas
+os.makedirs(log_dir, exist_ok=True)
+
+# Créer le fichier de log s'il n'existe pas
+if not os.path.exists(log_file):
+    with open(log_file, "w") as f:
+        pass
+
+if os.access(log_file, os.W_OK):
+    if os.path.exists(LOG_CONFIG_PATH):
+        with open(LOG_CONFIG_PATH, "r") as f:
+            config = yaml.safe_load(f)
+        logging.config.dictConfig(config)
+    else:
+        logging.basicConfig(
+            level=logging.DEBUG,
+            format="[%(asctime)s] [%(levelname)s] [%(name)s] [%(funcName)s] - %(message)s",
+        )
 else:
+    print(
+        f"⚠️ Attention: Impossible d'écrire dans {log_file}, fallback sur basicConfig."
+    )
     logging.basicConfig(
         level=logging.DEBUG,
         format="[%(asctime)s] [%(levelname)s] [%(name)s] [%(funcName)s] - %(message)s",

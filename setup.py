@@ -27,7 +27,7 @@ setup(
     ],
     entry_points={  # Si tu as des scripts CLI, déclare-les ici
         "console_scripts": [
-            "datops-manager-cli = datops_manager.cli:main",  # Point d'entrée vers ton CLI
+            "dom = datops_manager.cli:main",  # Point d'entrée vers ton CLI
         ],
     },
     include_package_data=True,
