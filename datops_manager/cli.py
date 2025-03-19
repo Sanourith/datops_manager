@@ -1,9 +1,8 @@
 import click
 from datops_manager.infrastructure.docker_manager import DockerManager
 from datops_manager.infrastructure.k8s_manager import KubernetesManager
+from datops_manager.monitoring.logger import get_logger, log_function_call
 from datops_manager.utils.config_manager import ConfigManager
-from datops_manager.monitoring.logger import get_logger
-from datops_manager.monitoring.logger import log_function_call
 
 
 # Initializing components

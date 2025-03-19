@@ -19,6 +19,7 @@ DIRECTORIES=(
     "$PROJECT_NAME/examples"
     "$PROJECT_NAME/docs"
     "$PROJECT_NAME/scripts"
+    "$PROJECT_NAME/datops_manager/logs"
 )
 
 FILES=(
@@ -41,6 +42,7 @@ FILES=(
     "$PROJECT_NAME/examples/data_migration_example.py"
     "$PROJECT_NAME/docs/index.md" "$PROJECT_NAME/docs/etl.md" "$PROJECT_NAME/docs/infrastructure.md" "$PROJECT_NAME/docs/monitoring.md"
     "$PROJECT_NAME/scripts/install_dependencies.sh" "$PROJECT_NAME/scripts/setup_dev_environment.sh"
+    "$PROJECT_NAME/datops_manager/logs/datops_manager.log"
 )
 
 # Création des dossiers et fichiers
