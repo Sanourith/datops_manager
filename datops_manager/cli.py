@@ -60,6 +60,9 @@ def run(image, name, remove):
         logger.error(f"Error launching container {name}: {e}")
 
 
+# eg : dom run --image my_image --name my_container --rm
+
+
 @cli.command(name="build")
 @click.argument("image_name")
 @click.argument("dockerfile_path", default=".")
@@ -72,6 +75,9 @@ def build(image_name, dockerfile_path):
         logger.info(f"Image {image_name} built successfully.")
     except Exception as e:
         logger.error(f"Error building image {image_name}: {e}")
+
+
+# eg : dom build my_image ./Dockerfile
 
 
 @cli.command(name="push")
@@ -88,7 +94,7 @@ def push(image_name, reg):
         logger.error(f"Error pushing image {image_name}: {e}")
 
 
-# eg : dom dock run
+# eg : dom push my_image --reg my_registry
 
 
 # docker stop / docker rm & ajout stop/rm à run
@@ -102,14 +108,14 @@ def push(image_name, reg):
 
 
 #######################################################################################
-@cli.group(name="kub")
-def k8s():
-    """Deployments tool"""
-    pass
+# @cli.group(name="kub")
+# def k8s():
+#     """Deployments tool"""
+#     pass
 
 
 # TODO : create k8s_manager.py
-@k8s.command(name="apply")
+@cli.command(name="apply")
 @click.option("--file", required=True, help="Path/to/deploy.yaml")
 @click.option(
     "--action",
@@ -131,8 +137,8 @@ def deploy(file, action):
         logger.error(f"Error during {action} of {file} : {e}")
 
 
-# eg : dom kub apply --file deploy.yaml --action deploy
-# eg : dom kub apply --file deploy.yaml --action delete
+# eg : dom apply --file deploy.yaml --action deploy
+# eg : dom apply --file deploy.yaml --action delete
 
 
 # combiner deploy/delete ?
