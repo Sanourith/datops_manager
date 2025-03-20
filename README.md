@@ -1,5 +1,20 @@
 # DATOPS CLI PROJECT
 
+---
+🚀 **Welcome to DatOps Manager!** 🚀
+
+DatOps Manager is a powerful CLI tool designed to simplify and automate operations for Data and DevOps engineers. Whether you're managing Docker containers, Kubernetes clusters, or building ETL pipelines, this tool has got you covered.
+
+---
+
+### Quick Links
+- [Documentation](docs/index-WIP.md)
+- [Installation Guide](docs/index-WIP.md#installation)
+- [Features](docs/index-WIP.md#features)
+- [Contributing](docs/index-WIP.md#contributing)
+
+---
+
 ```plaintext
 datops-manager/
 ├── datops_manager/
@@ -61,23 +76,27 @@ datops-manager/
 └── README.md                       # Main documentation
 ```
 # Implementation Plan
+---
 ✅ Done\
 🚧 Wip\
 ❌ Abort
 
 ## Phase 1: Project Structure Setup
+---
 ✅ Creation of the project skeleton with a clear folder structure.\
 ✅ Initialization of the Github repository and the virtual environment used later v_datops.\
 ✅ Git versioning system.\
 ✅ Development tools & linters.
 
 ## Phase 2: Development of the Core System
+---
 ✅ Implementation of the CLI entry point with Click.\
 🚧 Development of the centralized logging system.\
 🚧 Setup of the configuration manager.\
 🚧 Creation of the base structure for unit tests.
 
 ## Phase 3: Development of Essential Modules
+---
 ⬜ Implement basic ETL functionalities:
 
 ⬜ Connections to common data sources.\
@@ -92,23 +111,27 @@ datops-manager/
 ⬜ Setup a simple monitoring system.
 
 ## Phase 4: Package Enrichment
+---
 ⬜ Add more connectors for data sources/destinations.\
 ⬜ Develop advanced transformations.\
 ⬜ Implement Terraform management.\
 ⬜ Add support for Airflow.
 
 ## Phase 5: Testing and Documentation
+---
 ⬜ Complete unit and integration tests.\
 ⬜ Write detailed documentation.\
 ⬜ Create usage examples.\
 ⬜ Prepare the package for distribution.
 
 ## Phase 6: CI/CD and Deployment
+---
 ⬜ Setup a CI/CD pipeline.\
 ⬜ Publish the package on PyPI (optional).\
 ⬜ Create Docker images to facilitate usage.
 
 ## Possible Improvements
+---
 ⬜ Web GUI: Develop a lightweight web interface to visualize the state of ETL pipelines, performance metrics, and logs, providing an alternative to the CLI interface.\
 ⬜ Plugin System: Create a plugin system to extend the package's functionalities without modifying the core code, facilitating the integration of new connectors or transformations.\
 ⬜ Auto-scaling for ETL: Implement an auto-scaling feature that automatically adjusts resources allocated to ETL tasks based on workload and data complexity.\
