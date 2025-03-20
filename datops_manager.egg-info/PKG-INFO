@@ -31,48 +31,63 @@ Dynamic: summary
 
 # DATOPS CLI PROJECT
 
-```txt
+---
+🚀 **Welcome to DatOps Manager!** 🚀
+
+DatOps Manager is a powerful CLI tool designed to simplify and automate operations for Data and DevOps engineers. Whether you're managing Docker containers, Kubernetes clusters, or building ETL pipelines, this tool has got you covered.
+
+---
+
+### Quick Links
+- [Documentation](docs/index-WIP.md)
+- [Installation Guide](docs/index-WIP.md#installation)
+- [Features](docs/index-WIP.md#features)
+- [Contributing](docs/index-WIP.md#contributing)
+
+---
+
+```plaintext
 datops-manager/
 ├── datops_manager/
 │   ├── __init__.py
-│   ├── cli.py                      # Point d'entrée CLI principal (Click)
-│   ├── infrastructure/             # Gestion de l'infrastructure
+│   ├── cli.py                      # Main CLI entry point (Click)
+│   ├── infrastructure/             # Infrastructure management
 │   │   ├── __init__.py
-│   │   ├── k8s_manager.py          # Gestion Kubernetes
-│   │   ├── terraform_deployer.py   # Déploiement avec Terraform
-│   │   └── docker_manager.py       # Gestion des conteneurs Docker
-│   ├── etl/                        # Module ETL
+│   │   ├── k8s_manager.py          # Kubernetes management
+│   │   ├── terraform_deployer.py   # Deployment with Terraform
+│   │   └── docker_manager.py       # Docker container management
+│   ├── etl/                        # ETL module
 │   │   ├── __init__.py
-│   │   ├── pipeline.py             # Classe ETLPipeline principale
-│   │   ├── extract.py              # Connecteurs pour l'extraction de données
-│   │   ├── transform.py            # Fonctions de transformation
-│   │   ├── load.py                 # Connecteurs pour le chargement des données
-│   │   └── validator.py            # Validation des données
-│   ├── data_migration/             # Synchronisation et migration de données
+│   │   ├── pipeline.py             # Main ETLPipeline class
+│   │   ├── extract.py              # Data extraction connectors
+│   │   ├── transform.py            # Data transformation functions
+│   │   ├── load.py                 # Data loading connectors
+│   │   └── validator.py            # Data validation
+│   ├── data_migration/             # Data synchronization and migration
 │   │   ├── __init__.py
-│   │   ├── db_sync.py              # Synchronisation entre bases de données
-│   │   └── migration_manager.py    # Gestion des migrations
-│   ├── monitoring/                 # Monitoring et alertes
+│   │   ├── db_sync.py              # Database synchronization
+│   │   └── migration_manager.py    # Migration management
+│   ├── monitoring/                 # Monitoring and alerts
 │   │   ├── __init__.py
-│   │   ├── logger.py               # Système de logs centralisé
-│   │   ├── metrics.py              # Collecte et reporting de métriques
-│   │   └── alert_manager.py        # Système d'alertes (Slack, Email, etc.)
-│   ├── orchestration/              # Orchestration des pipelines
+│   │   ├── logger.py               # Centralized logging system
+│   │   ├── metrics.py              # Metrics collection and reporting
+│   │   └── alert_manager.py        # Alert system (Slack, Email, etc.)
+│   ├── orchestration/              # Pipeline orchestration
 │   │   ├── __init__.py
-│   │   ├── airflow_manager.py      # Gestion des DAGs Airflow
-│   │   └── spark_runner.py         # Exécution des jobs Spark
-│   └── utils/                      # Fonctions utilitaires
+│   │   ├── airflow_manager.py      # Airflow DAGs management
+│   │   └── spark_runner.py         # Spark jobs execution
+│   └── utils/                      # Utility functions
 │       ├── __init__.py
-│       ├── config_manager.py       # Gestion des configurations
-│       ├── secret_manager.py       # Gestion sécurisée des secrets
-│       └── helpers.py              # Fonctions d'aide diverses
-├── tests/                          # Tests unitaires et d'intégration
+│       ├── config_manager.py       # Configuration management
+│       ├── secret_manager.py       # Secure secrets management
+│       └── helpers.py              # Various helper functions
+├── tests/                          # Unit and integration tests
 │   ├── __init__.py
 │   ├── test_etl/
 │   ├── test_infrastructure/
 │   ├── test_data_migration/
 │   └── test_monitoring/
-├── examples/                       # Exemples d'utilisation
+├── examples/                       # Usage examples
 │   ├── etl_pipeline_example.py
 │   ├── k8s_deployment_example.py
 │   └── data_migration_example.py
@@ -81,81 +96,75 @@ datops-manager/
 │   ├── etl.md
 │   ├── infrastructure.md
 │   └── monitoring.md
-├── scripts/                        # Scripts utilitaires
+├── scripts/                        # Utility scripts
 │   ├── install_dependencies.sh
 │   └── setup_dev_environment.sh
-├── setup.py                        # Installation du package
-├── pyproject.toml                  # Configuration du projet
-├── requirements.txt                # Dépendances
-├── requirements-dev.txt            # Dépendances pour le développement
+├── setup.py                        # Package installation
+├── pyproject.toml                  # Project configuration
+├── requirements.txt                # Dependencies
+├── requirements-dev.txt            # Development dependencies
 ├── LICENSE
-└── README.md                       # Documentation principale
+└── README.md                       # Main documentation
 ```
+# Implementation Plan
+---
+✅ Done\
+🚧 Wip\
+❌ Abort
 
+## Phase 1: Project Structure Setup
+---
+✅ Creation of the project skeleton with a clear folder structure.\
+✅ Initialization of the Github repository and the virtual environment used later v_datops.\
+✅ Git versioning system.\
+✅ Development tools & linters.
 
-# Plan de mise en place
+## Phase 2: Development of the Core System
+---
+✅ Implementation of the CLI entry point with Click.\
+🚧 Development of the centralized logging system.\
+🚧 Setup of the configuration manager.\
+🚧 Creation of the base structure for unit tests.
 
-## Phase 1: Mise en place de la structure du projet
+## Phase 3: Development of Essential Modules
+---
+⬜ Implement basic ETL functionalities:
 
-✅ Création du squelette du projet avec l'arborescence des dossiers pour une clarté maximale.\
-✅ Initialisation du repo Github et de l'environnement virtuel utilisé par la suite v_datops\
-✅ Système de versionnage Git\
-✅ Outils de développement & linters
+⬜ Connections to common data sources.\
+⬜ Simple transformations.\
+⬜ Loading to main destinations.
 
-## Phase 2: Développement du système de base
+⬜ Develop basic Kubernetes functionalities:
 
-🚧 Implémentation du point d'entrée CLI avec Click\
-🚧 Développement du système de logs centralisé\
-🚧 Mise en place du gestionnaire de configuration\
-🚧 Créer la structure de base pour les tests unitaires
+⬜ Creation/deletion of namespaces.\
+⬜ Deployment of pods/services.
 
+⬜ Setup a simple monitoring system.
 
-## Phase 3: Développement des modules essentiels
+## Phase 4: Package Enrichment
+---
+⬜ Add more connectors for data sources/destinations.\
+⬜ Develop advanced transformations.\
+⬜ Implement Terraform management.\
+⬜ Add support for Airflow.
 
-⬜ Implémenter les fonctionnalités de base pour l'ETL:
+## Phase 5: Testing and Documentation
+---
+⬜ Complete unit and integration tests.\
+⬜ Write detailed documentation.\
+⬜ Create usage examples.\
+⬜ Prepare the package for distribution.
 
-⬜ Connexions aux sources de données courantes\
-⬜ Transformations simples\
-⬜ Chargement vers destinations principales
+## Phase 6: CI/CD and Deployment
+---
+⬜ Setup a CI/CD pipeline.\
+⬜ Publish the package on PyPI (optional).\
+⬜ Create Docker images to facilitate usage.
 
-
-⬜ Développer les fonctionnalités Kubernetes de base:
-
-⬜ Création/suppression de namespaces\
-⬜ Déploiement de pods/services
-
-
-⬜ Mettre en place le système de monitoring simple
-
-
-## Phase 4: Enrichissement du package
-
-⬜ Ajouter plus de connecteurs pour sources/destinations de données\
-⬜ Développer des transformations avancées\
-⬜ Implémenter la gestion Terraform\
-⬜ Ajouter le support pour Airflow
-
-
-## Phase 5: Tests et documentation
-
-⬜ Compléter les tests unitaires et d'intégration\
-⬜ Rédiger la documentation détaillée\
-⬜ Créer des exemples d'utilisation\
-⬜ Préparer le package pour la distribution
-
-
-## Phase 6: CI/CD et déploiement
-
-⬜ Mettre en place un pipeline CI/CD\
-⬜ Publier le package sur PyPI (optionnel)\
-⬜ Créer des images Docker pour faciliter l'utilisation
-
-
-
-# Améliorations possibles
-
-⬜ Interface graphique web: Développer une interface web légère qui permet de visualiser l'état des pipelines ETL, les métriques de performance et les logs, offrant ainsi une alternative à l'interface CLI.\
-⬜ Plugin System: Créer un système de plugins qui permet d'étendre les fonctionnalités du package sans modifier le code de base, facilitant l'intégration de nouveaux connecteurs ou transformations.\
-⬜ Auto-scaling pour ETL: Implémenter une fonctionnalité d'auto-scaling qui ajuste automatiquement les ressources allouées aux tâches ETL en fonction de la charge de travail et de la complexité des données.\
-⬜ Gestion du versionnement des données: Ajouter un système de versionnement pour les jeux de données et les schémas, permettant de suivre les modifications et de revenir à des versions antérieures si nécessaire.\
-⬜ Détection d'anomalies: Intégrer des algorithmes de machine learning pour détecter automatiquement les anomalies dans les données traitées et dans les performances des pipelines, avec génération d'alertes pertinentes.
+## Possible Improvements
+---
+⬜ Web GUI: Develop a lightweight web interface to visualize the state of ETL pipelines, performance metrics, and logs, providing an alternative to the CLI interface.\
+⬜ Plugin System: Create a plugin system to extend the package's functionalities without modifying the core code, facilitating the integration of new connectors or transformations.\
+⬜ Auto-scaling for ETL: Implement an auto-scaling feature that automatically adjusts resources allocated to ETL tasks based on workload and data complexity.\
+⬜ Data Versioning: Add a versioning system for datasets and schemas, allowing tracking of changes and reverting to previous versions if necessary.\
+⬜ Anomaly Detection: Integrate machine learning algorithms to automatically detect anomalies in processed data and pipeline performance, with relevant alert generation.
