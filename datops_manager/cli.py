@@ -82,19 +82,6 @@ def deploy(file, action):
 # eg : dom kub apply --file deploy.yaml --action delete
 
 
-# @k8s.command(name="del")
-# @click.command("--name", required=True, help="Name of deploy to delete")
-# @log_function_call("datops_manager.cli.k8s.delete")
-# def delete(name):
-#     """Delete a deployment by its name"""
-#     k8s_manager = KubernetesManager(config)
-#     try:
-#         k8s_manager.delete(name)
-#         logger.info(f"Deployment : {name} deleted")
-#     except Exception as e:
-#         logger.error(f"Error during deletion of {name}: {e}")
-
-
 # combiner deploy/delete ?
 # get all -n
 #
