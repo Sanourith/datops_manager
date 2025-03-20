@@ -66,15 +66,15 @@ datops-manager/
 ❌ Abort
 
 ## Phase 1: Project Structure Setup
-✅ Creation of the project skeleton with a clear folder structure.
-✅ Initialization of the Github repository and the virtual environment used later v_datops.
-✅ Git versioning system.
+✅ Creation of the project skeleton with a clear folder structure.\
+✅ Initialization of the Github repository and the virtual environment used later v_datops.\
+✅ Git versioning system.\
 ✅ Development tools & linters.
 
 ## Phase 2: Development of the Core System
-✅ Implementation of the CLI entry point with Click.
-🚧 Development of the centralized logging system.
-🚧 Setup of the configuration manager.
+✅ Implementation of the CLI entry point with Click.\
+🚧 Development of the centralized logging system.\
+🚧 Setup of the configuration manager.\
 🚧 Creation of the base structure for unit tests.
 
 ## Phase 3: Development of Essential Modules
