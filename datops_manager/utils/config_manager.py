@@ -1,5 +1,7 @@
 import os
 import yaml
+import logging
+from logging import handlers
 from typing import Dict, Any
 
 
@@ -15,18 +17,18 @@ class ConfigManager:
         Args:
             config_file (str, optional): Path/to/config.yaml. Defaults to "config.yaml".
         """
-        self.config_file = config_file
+        self.config_file = os.path.join(os.path.dirname(__file__), "config.yaml")
         self.config = self._load_config()
 
     def _load_config(self) -> Dict[str, Any]:
         """
-        Loads configuration from YAML
+        Loads configuration from YAML file.
 
         Returns:
-            Dict[str, Any]: Dictionnary of the config
+            Dict[str, Any]: Dictionary containing the configuration.
         """
         if not os.path.exists(self.config_file):
-            raise FileNotFoundError(f"Config_file '{self.config_file} not found.")
+            raise FileNotFoundError(f"Config file '{self.config_file}' not found.")
 
         try:
             with open(self.config_file, "r") as file:
@@ -41,8 +43,7 @@ class ConfigManager:
 
         Args:
             key (str): The key to access, e.g., "logging.handlers.console".
-            default (Any, optional): Default value if key is not found.
-            Defaults to None.
+            default (Any, optional): Default value if key is not found. Defaults to None.
 
         Returns:
             Any: The value corresponding to the key, or default if key is not found.
@@ -57,11 +58,29 @@ class ConfigManager:
             return default
 
     def get_logging_config(self) -> Dict[str, Any]:
-        """Returns the logging configuration"""
+        """Returns the logging configuration."""
         return self.get("logging", {})
 
+    def get_database_config(self) -> Dict[str, Any]:
+        """Returns the database configuration."""
+        return self.get("database", {})
 
-if __name__=="__main__":
-    try:
-        config_manager = ConfigManager()
-        logger.info()
+    def get_api_config(self) -> Dict[str, Any]:
+        """Returns the API configuration."""
+        return self.get("api", {})
+
+    def get_docker_config(self) -> Dict[str, Any]:
+        """Returns the Docker configuration."""
+        return self.get("docker", {})
+
+    def get_kubernetes_config(self) -> Dict[str, Any]:
+        """Returns the Kubernetes configuration."""
+        return self.get("kubernetes", {})
+
+    def get_security_config(self) -> Dict[str, Any]:
+        """Returns the security configuration."""
+        return self.get("security", {})
+
+    def get_environment_config(self) -> Dict[str, Any]:
+        """Returns the environment configuration."""
+        return self.get("environment", {})

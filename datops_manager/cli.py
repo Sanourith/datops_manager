@@ -20,25 +20,72 @@ def cli():
     pass
 
 
-# DOCKER COMMANDS
-@cli.group(name="dock")
-def docker():
-    """Docker commands for CLI"""
-    pass
+@cli.command(name="info")
+def info():
+    """Display information about the project and current configuration."""
+    logger.info(f"CLI Version: {cli_version}")
+    logger.info(f"Logging Config: {config.get_logging_config()}")
+    logger.info(f"Database Config: {config.get_database_config()}")
+    logger.info(f"API Config: {config.get_api_config()}")
+    logger.info(f"Docker Config: {config.get_docker_config()}")
+    logger.info(f"Kubernetes Config: {config.get_kubernetes_config()}")
 
 
-@docker.command(name="run")
+#######################################################################################
+
+#                               CLI's DOCKER PART
+
+
+#######################################################################################
+# @cli.group(name="dock")
+# def docker():
+#     """Docker commands for CLI"""
+#     pass
+
+
+# RUN_CMD IS A FIRST EXAMPLE
+# TODO : make a command run to run_container
+@cli.command(name="run")
 @click.option("--image", required=True, help="Docker Image to use.")
 @click.option("--name", required=True, help="Container's name")
-@log_function_call("datops_manager.cli.docker.run")
-def run(image, name):
-    """Launch a Docker containers"""
+@click.option("--rm", is_flag=True, help="Remove container after it stops.")
+@log_function_call("datops_manager.cli.docker")
+def run(image, name, remove):
+    """Launch a Docker container"""
     docker_manager = DockerManager(config)
     try:
-        docker_manager.run_container(image, name)
+        docker_manager.run_container(image, name, remove)
         logger.info(f"Container {name} launched with image: {image}")
     except Exception as e:
-        logger.error(f"Error launching container : {e}")
+        logger.error(f"Error launching container {name}: {e}")
+
+
+@cli.command(name="build")
+@click.argument("image_name")
+@click.argument("dockerfile_path", default=".")
+@log_function_call("datops_manager.cli.docker")
+def build(image_name, dockerfile_path):
+    """Building docker images"""
+    docker_manager = DockerManager(config)
+    try:
+        docker_manager.build_image(image_name, dockerfile_path)
+        logger.info(f"Image {image_name} built successfully.")
+    except Exception as e:
+        logger.error(f"Error building image {image_name}: {e}")
+
+
+@cli.command(name="push")
+@click.argument("image_name")
+@click.option("--reg", default="local", help="Target registry (default: local)")
+@log_function_call("datops_manager.cli.docker")
+def push(image_name, reg):
+    """Pushing docker images"""
+    docker_manager = DockerManager(config)
+    try:
+        docker_manager.push_image(image_name, reg)
+        logger.info(f"Image {image_name} pushed successfully to {reg}.")
+    except Exception as e:
+        logger.error(f"Error pushing image {image_name}: {e}")
 
 
 # eg : dom dock run
@@ -49,13 +96,19 @@ def run(image, name):
 # docker images & ajout rm à images
 
 
-# KUBERNETES COMMANDS
+#######################################################################################
+
+#                               CLI's KUBERNETES PART
+
+
+#######################################################################################
 @cli.group(name="kub")
 def k8s():
     """Deployments tool"""
     pass
 
 
+# TODO : create k8s_manager.py
 @k8s.command(name="apply")
 @click.option("--file", required=True, help="Path/to/deploy.yaml")
 @click.option(
@@ -63,7 +116,7 @@ def k8s():
     required=True,
     type=click.Choice(["deploy", "delete"], case_sensitive=False),
 )
-@log_function_call("datops_manager.cli.k8s.apply")
+@log_function_call("datops_manager.cli.k8s")
 def deploy(file, action):
     """Deploy/Delete application on Kubernetes"""
     k8s_manager = KubernetesManager(config)
@@ -87,9 +140,13 @@ def deploy(file, action):
 #
 
 
-# GITLAB
+#######################################################################################
+#######################################################################################
+
+#                               CLI's GITLAB PART
 
 
+#######################################################################################
 @cli.command(name="version")
 def version():
     """Display CLI version"""
@@ -103,6 +160,10 @@ def check_config():
     for key, value in config.config.items():
         click.echo(f"{key}: {value}")
 
+
+cli.add_command(build)
+cli.add_command(push)
+cli.add_command(info)
 
 if __name__ == "__main__":
     cli()

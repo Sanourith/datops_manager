@@ -38,3 +38,11 @@ setup(
         # Ajoute ici des dépendances de tests si nécessaires
     ],
 )
+
+#########################
+# INSTALLATION TUTORIAL #
+#########################
+
+# use pip install -e .    << to install when you're in parent directory.
+# echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+# source ~/.bashrc

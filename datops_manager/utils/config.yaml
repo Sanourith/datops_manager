@@ -10,3 +10,44 @@ logging:
       enabled: true
       level: INFO
       filename: datops_manager/logs/dataops_manager.log
+
+database:
+  host: "localhost"
+  port: 5432
+  username: "user"
+  password: "password"
+  database_name: "my_database"
+
+api:
+  base_url: "https://api.example.com"
+  timeout: 30
+  api_key: "your_api_key"
+
+docker:
+  registry_url: "docker.io"
+  default_image: "my_default_image"
+
+kubernetes:
+  kubeconfig_path: "/path/to/kubeconfig"
+  namespace: "default"
+  context: "dev-context"
+
+security:
+  api_key: "your_api_key"
+  secret_key: "your_secret_key"
+  encryption_key: "your_encryption_key"
+
+environment:
+  mode: "production"
+  debug: false
+
+notifications:
+  email:
+    enabled: true
+    smtp_server: "smtp.example.com"
+    smtp_port: 587
+    sender_email: "noreply@example.com"
+    recipient_email: "admin@example.com"
+  slack:
+    enabled: true
+    webhook_url: "https://hooks.slack.com/services/XXXX/XXXX/XXXX"
