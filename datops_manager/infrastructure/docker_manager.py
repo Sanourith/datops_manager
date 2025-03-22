@@ -5,7 +5,8 @@ logger = get_logger("datops_manager.docker")
 
 
 class DockerManager:
-    def __init__(self):
+    def __init__(self, config):
+        self.config = config
         pass
 
     def build_image(self, image_name, dockerfile_path="."):
