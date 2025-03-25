@@ -5,3 +5,25 @@ pandas
 sqlalchemy
 pymysql
 python-dotenv
+cachetools==5.5.2
+certifi==2025.1.31
+charset-normalizer==3.4.1
+click==8.1.8
+-e git+ssh://git@github.com/Sanourith/datops_manager.git@e91d3a106abd82e2112721179971212ad8d7c048#egg=datops_manager
+docker==7.1.0
+durationpy==0.9
+google-auth==2.38.0
+idna==3.10
+kubernetes==32.0.1
+oauthlib==3.2.2
+pyasn1==0.6.1
+pyasn1_modules==0.4.1
+python-dateutil==2.9.0.post0
+PyYAML==6.0.2
+requests==2.32.3
+requests-oauthlib==2.0.0
+rsa==4.9
+setuptools==78.1.0
+six==1.17.0
+urllib3==2.3.0
+websocket-client==1.8.0
